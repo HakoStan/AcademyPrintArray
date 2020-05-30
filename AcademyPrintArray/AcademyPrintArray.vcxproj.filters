@@ -1,0 +1,79 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="PrintArray">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="Player">
+      <UniqueIdentifier>{0455d787-758a-4801-b5f2-8366e7373919}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="SortingAlgo">
+      <UniqueIdentifier>{6defa5f6-6d17-4f99-a839-bbbf85cc7c2a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="YAFramework">
+      <UniqueIdentifier>{9294b0a7-1538-4e5e-b4cf-f4e6994e59fe}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="YAFramework\LinkedList">
+      <UniqueIdentifier>{fafc4a2d-827a-4194-b2af-252936d27fb3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="PlayerList">
+      <UniqueIdentifier>{8b05ba0d-f5b1-4108-b505-0f2329420436}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="YAFramework\Sort">
+      <UniqueIdentifier>{246ae7f4-fa51-48f7-afc6-0f61753b3b72}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="YAFramework\BinarySearchTree">
+      <UniqueIdentifier>{6d4d59f1-61c9-40fd-ae8c-c6bcafe5ebcb}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="YAFramework\ComparisonCounter">
+      <UniqueIdentifier>{dba2eed8-ad55-41d5-b0ed-713da5dde91f}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="PrintArray.cpp">
+      <Filter>PrintArray</Filter>
+    </ClCompile>
+    <ClCompile Include="Player.cpp">
+      <Filter>Player</Filter>
+    </ClCompile>
+    <ClCompile Include="SortingAlgo.cpp">
+      <Filter>SortingAlgo</Filter>
+    </ClCompile>
+    <ClCompile Include="PlayerList.cpp">
+      <Filter>PlayerList</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Player.hpp">
+      <Filter>Player</Filter>
+    </ClInclude>
+    <ClInclude Include="SortingAlgo.hpp">
+      <Filter>SortingAlgo</Filter>
+    </ClInclude>
+    <ClInclude Include="Node.hpp">
+      <Filter>YAFramework\LinkedList</Filter>
+    </ClInclude>
+    <ClInclude Include="PlayerList.hpp">
+      <Filter>PlayerList</Filter>
+    </ClInclude>
+    <ClInclude Include="PrintArray.hpp">
+      <Filter>PrintArray</Filter>
+    </ClInclude>
+    <ClInclude Include="List.hpp">
+      <Filter>YAFramework\LinkedList</Filter>
+    </ClInclude>
+    <ClInclude Include="QuickSort.hpp">
+      <Filter>YAFramework\Sort</Filter>
+    </ClInclude>
+    <ClInclude Include="BSTreeNode.hpp">
+      <Filter>YAFramework\BinarySearchTree</Filter>
+    </ClInclude>
+    <ClInclude Include="BSTree.hpp">
+      <Filter>YAFramework\BinarySearchTree</Filter>
+    </ClInclude>
+    <ClInclude Include="ComparisonCounter.hpp">
+      <Filter>YAFramework\ComparisonCounter</Filter>
+    </ClInclude>
+  </ItemGroup>
+</Project>
