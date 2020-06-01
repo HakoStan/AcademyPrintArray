@@ -18,6 +18,7 @@ public:
 	PlayerList& operator=(PlayerList&& other) noexcept = delete;
 
 	std::uint32_t Insert(Player player);
+	YAFramework::List<Player> GetListOfPlayers();
 	friend std::ostream& operator<<(std::ostream& os, const PlayerList& playerList);
 
 private:

@@ -12,7 +12,7 @@ public:
 	Player(const Player& other) = default;
 	Player(Player&& other) noexcept = default;
 	Player& operator=(const Player& other) = default;
-	Player& operator=(Player&& other) noexcept = default;
+	Player& operator=(Player&& other) = default;
 
 	friend std::ostream& operator<<(std::ostream& os, const Player& player);
 

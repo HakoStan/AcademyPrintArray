@@ -12,8 +12,8 @@ int NaivePrint(Player players[], int n, int k)
 
 	for (int i = 0; i < n; i++)
 	{
-		numberOfComparissons++; // TODO :: Check this - maybe not need
-		if (players[i].GetId() < k)
+		numberOfComparissons++;
+		if (players[i].GetId() < static_cast<std::uint32_t>(k))
 		{
 			numberOfComparissons += listOfPlayers.Insert(players[i]);
 		}
@@ -29,10 +29,10 @@ int PrintBySort(Player players[], int n, int k)
 
 	YAFramework::Sort::QuickSort(players, 0, n - 1, numberOfComparissons);
 
-	for (std::uint32_t i = 0; i < n; i++)
+	for (std::uint32_t i = 0; i < static_cast<std::uint32_t>(n); i++)
 	{
-		numberOfComparissons++; // TODO :: Check this - maybe not need
-		if (players[i].GetId() >= k)
+		numberOfComparissons++;
+		if (players[i].GetId() >= static_cast<std::uint32_t>(k))
 		{
 			break;
 		}

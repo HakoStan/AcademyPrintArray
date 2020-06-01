@@ -1,5 +1,4 @@
-﻿  SortingAlgo.cpp
-c:\git\academyprintarray\academyprintarray\academyprintarray\sortingalgo.cpp(16): warning C4018: '<': signed/unsigned mismatch
-c:\git\academyprintarray\academyprintarray\academyprintarray\sortingalgo.cpp(32): warning C4018: '<': signed/unsigned mismatch
-c:\git\academyprintarray\academyprintarray\academyprintarray\sortingalgo.cpp(35): warning C4018: '>=': signed/unsigned mismatch
-  AcademyPrintArray.vcxproj -> c:\git\AcademyPrintArray\AcademyPrintArray\x64\Debug\AcademyPrintArray.exe
+﻿  PlayerList.cpp
+  SortingAlgo.cpp
+  Generating Code...
+  AcademyPrintArray.vcxproj -> C:\Git\AcademyPrintArray\AcademyPrintArray\x64\Debug\AcademyPrintArray.exe

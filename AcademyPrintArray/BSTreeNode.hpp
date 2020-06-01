@@ -20,7 +20,7 @@ namespace YAFramework
 		BSTreeNode<KeyType, DataType>* m_left;
 		BSTreeNode<KeyType, DataType>* m_right;
 
-		template <typename KeyType, typename DataType>
+		template <typename KeyType2, typename DataType2>
 		friend class BSTree;
 	};
 

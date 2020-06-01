@@ -37,3 +37,6 @@
 Debug/*
 *.tlog
 AcademyFindAccesible/Debug/*
+
+*.txt
+*.pdf

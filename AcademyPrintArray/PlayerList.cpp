@@ -34,6 +34,11 @@ std::uint32_t PlayerList::Insert(Player player)
 	return numberOfComparisons;
 }
 
+YAFramework::List<Player> PlayerList::GetListOfPlayers()
+{
+	return this->m_listOfPlayers;
+}
+
 std::ostream & operator<<(std::ostream& os, const PlayerList& playerList)
 {
 	os << playerList.m_listOfPlayers;

@@ -9,13 +9,16 @@ namespace YAFramework
 	{
 	public:
 		BSTree();
-		~BSTree() = default;
+		~BSTree();
 
 		BSTreeNode<KeyType, DataType>* Find(KeyType key);
 		void Insert(KeyType key, DataType item);
 		void Delete(DataType item);
+		BSTreeNode<KeyType, DataType>* DeleteByNode(BSTreeNode<KeyType, DataType>* node, DataType item);
 		void MakeEmpty();
 		bool IsEmpty();
+		void FreeTree(BSTreeNode<KeyType, DataType>* node);
+		BSTreeNode<KeyType, DataType>* FindMin(BSTreeNode<KeyType, DataType>* node);
 
 		void PrintTreeInorder();
 		void PrintTreeInorderTillKey(KeyType key);
@@ -27,9 +30,55 @@ namespace YAFramework
 	};
 
 	template<class KeyType, class DataType>
+	BSTreeNode<KeyType, DataType>* BSTree<KeyType, DataType>::DeleteByNode(BSTreeNode<KeyType, DataType>* node, DataType item)
+	{
+		if (node == nullptr)
+		{
+			return node;
+		}
+		else if (item < node->m_data)
+		{
+			node->m_left = DeleteByNode(node->m_left, item);
+		}
+		else if (item > node->m_data)
+		{
+			node->m_right = DeleteByNode(node->m_right, item);
+		}
+		else // Equal
+		{
+			if (node->m_left == nullptr && node->m_right == nullptr)
+			{
+				delete node;
+				node = nullptr;
+			}
+			else if (node->m_left == nullptr)
+			{
+				BSTreeNode<KeyType, DataType>* temp = node;
+				node = node->m_right;
+				delete temp;
+			}
+			else if (node->m_right == nullptr)
+			{
+				BSTreeNode<KeyType, DataType>* temp = node;
+				node = node->m_left;
+				delete temp;
+			}
+			else
+			{
+				// 2 Children exists
+				BSTreeNode<KeyType, DataType>* temp = FindMin(node->m_right);
+				node->m_data = temp->m_data;
+				node->m_right = DeleteByNode(node->m_right, temp->m_data);
+			}
+
+		}
+		return node;
+	}
+
+	template<class KeyType, class DataType>
 	void BSTree<KeyType, DataType>::Delete(DataType item)
 	{
-		// TODO
+		DeleteByNode(m_root, item);
 	}
 
 	template<class KeyType, class DataType>
@@ -42,6 +91,12 @@ namespace YAFramework
 	BSTree<KeyType, DataType>::BSTree()
 	{
 		MakeEmpty();
+	}
+
+	template<class KeyType, class DataType>
+	BSTree<KeyType, DataType>::~BSTree()
+	{
+		FreeTree(m_root);
 	}
 
 	template<class KeyType, class DataType>
@@ -111,6 +166,28 @@ namespace YAFramework
 	bool BSTree<KeyType, DataType>::IsEmpty()
 	{
 		return m_root == nullptr;
+	}
+
+	template<class KeyType, class DataType>
+	void BSTree<KeyType, DataType>::FreeTree(BSTreeNode<KeyType, DataType>* node)
+	{
+		if (node == nullptr)
+		{
+			return;
+		}
+		FreeTree(node->m_left);
+		FreeTree(node->m_right);
+		delete node;
+	}
+
+	template<class KeyType, class DataType>
+	BSTreeNode<KeyType, DataType>* BSTree<KeyType, DataType>::FindMin(BSTreeNode<KeyType, DataType>* node)
+	{
+		while (node->m_left != nullptr)
+		{
+			node = node->m_left;
+		}
+		return node;
 	}
 
 	template<class KeyType, class DataType>

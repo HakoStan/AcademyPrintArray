@@ -20,18 +20,18 @@ namespace YAFramework
 		void InsertAfter(Node<T>* position, Node<T>* newNode);
 		void InsertToHead(Node<T>* newNode);
 
-		template <typename T>
-		friend std::ostream& operator<<(std::ostream & os, const List<T>& list);
+		template <typename U>
+		friend std::ostream& operator<<(std::ostream & os, const List<U>& list);
 	private:
 		void FreeList();
 		Node<T>* head = nullptr;
 		Node<T>* tail = nullptr;
 	};
 
-	template <typename T>
-	std::ostream& operator<<(std::ostream & os, const List<T>& list)
+	template <typename U>
+	std::ostream& operator<<(std::ostream & os, const List<U>& list)
 	{
-		Node<T>* temp = list.First();
+		Node<U>* temp = list.First();
 		while (temp != nullptr)
 		{
 			os << *temp << std::endl;

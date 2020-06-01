@@ -16,15 +16,15 @@ namespace YAFramework
 		T GetData() const;
 		void SetNext(Node<T>* next);
 
-		template <typename T>
-		friend std::ostream& operator<<(std::ostream& os, const Node<T>& node);
+		template <typename U>
+		friend std::ostream& operator<<(std::ostream& os, const Node<U>& node);
 	private:
 		T data;
 		Node* next = nullptr;
 	};
 
-	template <typename T>
-	std::ostream& operator<<(std::ostream & os, const Node<T>& node)
+	template <typename U>
+	std::ostream& operator<<(std::ostream & os, const Node<U>& node)
 	{
 		os << node.GetData();
 		return os;

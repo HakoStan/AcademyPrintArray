@@ -5,8 +5,9 @@
 #include "Player.hpp"
 #include "SortingAlgo.hpp"
 
-void PopulatePlayersArray(Player*& players, std::uint32_t numberOfPlayers)
+std::uint32_t PopulatePlayersArray(Player*& players, std::uint32_t numberOfPlayers)
 {
+	std::uint32_t numberOfComparisons = 0;
 	std::cin.ignore();
 
 	players = new Player[numberOfPlayers];
@@ -26,6 +27,9 @@ void PopulatePlayersArray(Player*& players, std::uint32_t numberOfPlayers)
 
 		for (std::uint32_t j = 0; j < i; j++)
 		{
+			// This is needed because of Iris answer on the thread form 23/05/2020, 18:13
+			// This will grow the numbers in the answer exponentioally
+			numberOfComparisons++;
 			VERIFY_AND_EXIT_PROGRAM((id != players[j].GetId()));
 		}
 
@@ -33,6 +37,8 @@ void PopulatePlayersArray(Player*& players, std::uint32_t numberOfPlayers)
 		players[i].SetLastName(lastName);
 		players[i].SetId(id);
 	}
+
+	return numberOfComparisons;
 }
 
 int main()
@@ -41,11 +47,12 @@ int main()
 	////////////////////////////INPUT///////////////////////////////////////
 	////////////////////////////////////////////////////////////////////////
 	std::uint32_t numberOfPlayers = 0;
+	std::uint32_t globalNumberOfComparisons = 0;
 	std::cin >> numberOfPlayers;
 	VERIFY_AND_EXIT_PROGRAM((numberOfPlayers != 0));
 
 	Player* players = nullptr;
-	PopulatePlayersArray(players, numberOfPlayers);
+	globalNumberOfComparisons = PopulatePlayersArray(players, numberOfPlayers);
 	
 	std::string line = "";
 	std::getline(std::cin, line);
@@ -59,12 +66,17 @@ int main()
 	////////////////////////////////////////////////////////////////////////
 	////////////////////////////Algos///////////////////////////////////////
 	////////////////////////////////////////////////////////////////////////
-
 	std::uint32_t naivePrintComparissons = NaivePrint(players, numberOfPlayers, minimalId);
 	std::uint32_t bstPritnComparissons = BSTPrint(players, numberOfPlayers, minimalId);
 	std::uint32_t printBySortComparissons = PrintBySort(players, numberOfPlayers, minimalId);
 
-	std::cout << "NaivePrint: " << naivePrintComparissons << " comparissons" << std::endl;
-	std::cout << "BSTPrint: " << bstPritnComparissons << " comparissons" << std::endl;
-	std::cout << "PrintBySort: " << printBySortComparissons << " comparissons" << std::endl;
+	naivePrintComparissons += globalNumberOfComparisons;
+	bstPritnComparissons += globalNumberOfComparisons;
+	printBySortComparissons += globalNumberOfComparisons;
+
+	std::cout << "NaivePrint: " << naivePrintComparissons << " comparisons" << std::endl;
+	std::cout << "BSTPrint: " << bstPritnComparissons << " comparisons" << std::endl;
+	std::cout << "PrintBySort: " << printBySortComparissons << " comparisons" << std::endl;
+
+	delete[] players;
 }
